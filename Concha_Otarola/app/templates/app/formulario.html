@@ -1,0 +1,112 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<style>body{
+  margin: 0%;
+  padding: 0%;
+  height: 100vh;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: medium;
+  background: linear-gradient(120deg,rgb(114, 114, 114),white);
+  text-decoration: red;
+  text-align: center;
+}
+
+.container-fluid{
+  background-color: rgb(114, 114, 114);
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.navbar{
+  padding: 0%;
+}
+form{
+  width: 30%;
+  margin: auto;
+  padding: 12px 20px;
+}
+fieldset{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  width: 600px;
+  background: white;
+  border-radius: 10px;
+}
+.Error{
+  background: rgb(114, 114, 114);
+  margin-left: 4cm;
+  margin-right: 4cm;
+  border-radius: 10px;
+}
+input [type="sumit"]{
+  width: 100%;
+  height: 50%;
+}
+
+footer{
+  background-color:  rgb(114, 114, 114);
+  padding: 0em 0;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}</style>
+
+    <form action="#" method="get">
+
+        <fieldset>
+            <u><h2>Ingreso de datos</h2></u>
+            <label for="NAME">(*)Nombre:</label>
+            <input type="text" id="name" minlength="3" maxlength="20" placeholder="Nombre" required>
+            <br>
+            <br>
+            <label for="Apellido Paterno ">(*)Apellido P:</label>
+            <input type="text" id="ApellidoP" minlength="3" maxlength="20" placeholder="Apellido Paterno" required>
+            <br>
+            <br>
+            <label for="Apellido Materno">(*)Apellido M:</label>
+            <input type="text" id="ApellidoM" minlength="3" maxlength="20" placeholder="Apellido Materno " required>
+            <br>
+            <br>
+            <label for="rut">(*)Rut:</label>
+            <input type="text" id="rut" minlength="9" maxlength="12" placeholder="Rut " required>
+            <br>        
+            <br>
+            <label for="genero">Genero: 
+                <select name="genero" id="genero" >
+                    <option value="">Seleccione su genero</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otros">Otros</option>
+                </select>
+            </label>
+
+            <br>
+            <br>
+            <label for="Correo">Email:</label>
+            <input type="Email" id="Correo"  placeholder="Correo Electronico" >
+            <br>
+            <br>
+            <label for="numero">Numero de telefono:</label>
+            <input type="text" id="numero" minlength="9" maxlength="12" placeholder="Numero telefonico" >
+            <br>
+            <br>
+            <input type="submit" id="btnEnviar" value="enviar" onclick='return subirFormulario()'>
+            <br>
+            
+            <div class="Error" id="error"></div>
+            <br>
+            
+            <a href="{% url 'index' %}"><button type="button" class="btn btn-outline-secondary">Volver</button></a>
+            <br>
+            <br>
+        </fieldset>
+        
+    </form>
+
+
+{% endblock %}

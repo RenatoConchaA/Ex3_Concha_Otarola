@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Productos</h1>
+        <table id="customers" border="1">
+            {% load static %}
+            <link rel="stylesheet" href="{% static 'style.css' %}">
+            <thead>
+                <th>Id</th>
+                <th>Producto</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th colspan="2" id="mid">Action</th>
+            </thead>
+            {% for x in alu %}
+                <tr>
+                    <td>{{x.id}}</td>
+                    <td>{{x.Producto}}</td>
+                    <td>{{x.Descripcion}}</td>
+                    <td>{{x.Precio}}</td>
+                    <td>
+                        <a href=""><button id="up">Actualizar</button></a>
+                    </td>
+                    <td>
+                        <a href=""><button id="del">Eliminar</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </table>
+        <br><br>
+        <a href="{% url 'agregar' %}"><button id="new3">Agregar Productos</button></a>
+    </div>
+</body>
+</html>
